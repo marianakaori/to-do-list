@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+    before_action :fetch_list, only: %i[ show edit update destroy ]
+
     def index
         @lists = List.all
     end
@@ -10,33 +12,22 @@ class ListsController < ApplicationController
     def create
         @list = List.new(list_params)
 
-        if @list.save
-            redirect_to list_path(@list)
-        else
-            render :new
-        end
+        return redirect_to @list if @list.save
+
+        render :new
     end
 
-    def show
-        @list = List.find(params[:id])
-    end
+    def show; end
 
-    def edit
-        @list = List.find(params[:id])
-    end
+    def edit; end
 
     def update
-        @list = List.find(params[:id])
+        return redirect_to @list if @list.update(list_params)
 
-        if @list.update(list_params)
-            redirect_to list_path(@list)
-        else
-            render :edit
-        end
+        render :edit
     end
 
     def destroy
-        @list = List.find(params[:id])
         @list.destroy
 
         redirect_to lists_path
@@ -46,5 +37,9 @@ class ListsController < ApplicationController
 
     def list_params
         params.require(:list).permit(:name)
+    end
+
+    def fetch_list
+        @list = List.find(params[:id])
     end
 end
