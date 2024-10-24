@@ -1,5 +1,13 @@
 <h2>New List</h2>
 
+<% if @list.errors.any? %>
+    <% @list.errors.full_messages.each do |message| %>
+        <p>
+            <%= message %>
+        </p>
+    <% end %>
+<% end %>
+
 <%= form_with model: @list, data: { turbo: false } do |f| %>
     <p>
         <%= f.label :name, 'Name' %>
