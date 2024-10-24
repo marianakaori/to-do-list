@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "home#index"
+    root "home#index"
 
-  resources :lists
+    resources :lists do
+        resources :items, only: %i[ create ]
+    end
 end
