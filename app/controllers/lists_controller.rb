@@ -1,35 +1,35 @@
 class ListsController < ApplicationController
-    def index; 
+    def index
         @lists = List.all
-    end    
+    end
 
-    def new; 
+    def new
         @list = List.new
-    end   
+    end
 
-    def create; 
+    def create
         @list = List.new(list_params)
 
         if @list.save
-            redirect_to list_path(@list) 
+            redirect_to list_path(@list)
         else
             render :new
         end
     end
 
-    def show; 
+    def show
         @list = List.find(params[:id])
     end
 
-    def edit; 
+    def edit
         @list = List.find(params[:id])
     end
 
-    def update; 
+    def update
         @list = List.find(params[:id])
 
         if @list.update(list_params)
-            redirect_to list_path(@list) 
+            redirect_to list_path(@list)
         else
             render :edit
         end
@@ -47,5 +47,4 @@ class ListsController < ApplicationController
     def list_params
         params.require(:list).permit(:name)
     end
-
 end
