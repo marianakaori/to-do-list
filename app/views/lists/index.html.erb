@@ -2,6 +2,7 @@
 
 <% @lists.each do |list| %>
     <p>
-        <%= list.name %>
+        <%= list.name %> |
+        <%= link_to 'Delete', list_path(list), data: { 'turbo_method': :delete, 'turbo_confirm': 'Deseja realmente apagar este item?' } %>
     </p>
 <% end %>
