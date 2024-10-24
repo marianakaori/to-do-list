@@ -17,7 +17,9 @@ class ListsController < ApplicationController
         render :new
     end
 
-    def show; end
+    def show
+        @items = @list.items
+    end
 
     def edit; end
 
