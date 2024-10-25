@@ -1,6 +1,8 @@
 <h2>List - <%= @list.name %></h2>
 
 <%= render @list %>
-<%= render @items %>
+<%= render @items = @list.items.where.not(id: nil) %>
 
 <%= render 'items/form', list: @list %>
+
+<%= render 'shared/errors', object: @item %>

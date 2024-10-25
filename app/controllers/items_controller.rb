@@ -1,16 +1,28 @@
 class ItemsController < ApplicationController
+    before_action :fetch_list, only: %i[ index create ]
+
+    def index
+        @items = @list.items
+
+        redirect_to @list
+    end
+
     def create
-        @list = List.find(params[:list_id])
         @item = @list.items.build(item_params)
 
         return redirect_to @list if @item.save
 
-        redirect_to @list, alert: "Erro ao adicionar o item."
+        @items = @list.items.where.not(id: nil)
+        render "lists/show"
     end
 
     private
 
     def item_params
         params.require(:item).permit(:description)
+    end
+
+    def fetch_list
+        @list = List.find(params[:list_id])
     end
 end

@@ -19,6 +19,7 @@ class ListsController < ApplicationController
 
     def show
         @items = @list.items
+        @item = @list.items.build
     end
 
     def edit; end
