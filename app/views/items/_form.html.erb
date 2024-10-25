@@ -1,6 +1,4 @@
-<h3>Adicionar Novo Item</h3>
-
-<%= form_with model: [list, list.items.build], local: true, data: { turbo: false } do |form| %>
+<%= form_with model: [list, item], local: true, data: { turbo: false } do |form| %>
     <div>
         <%= form.label :description, 'Descrição do Item' %>
         <%= form.text_field :description %>

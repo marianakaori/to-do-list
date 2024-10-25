@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-    before_action :fetch_list, only: %i[ index create ]
+    before_action :fetch_list, only: %i[ index create edit update ]
+    before_action :fetch_item, only: %i[ edit update ]
 
     def index
         @items = @list.items
@@ -16,6 +17,14 @@ class ItemsController < ApplicationController
         render "lists/show"
     end
 
+    def edit; end
+
+    def update
+        return redirect_to @list if @item.update(item_params)
+
+        render :edit
+    end
+
     private
 
     def item_params
@@ -24,5 +33,9 @@ class ItemsController < ApplicationController
 
     def fetch_list
         @list = List.find(params[:list_id])
+    end
+
+    def fetch_item
+        @item = @list.items.find(params[:id])
     end
 end
