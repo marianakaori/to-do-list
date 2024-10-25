@@ -4,4 +4,5 @@
     <%= item.completed %> |
     <%= item.list_id %> |
     <%= link_to 'Edit', edit_list_item_path(item.list_id, item) %> |
+    <%= link_to 'Delete', list_item_path(item.list_id, item), data: { 'turbo_method': :delete, 'turbo_confirm': 'Deseja realmente apagar este item?' } %>
 </p>
