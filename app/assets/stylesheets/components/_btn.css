@@ -1,0 +1,22 @@
+.btn {
+    display: inline-block;
+    width: auto;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background-color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    transition: filter 400ms, color 200ms;
+    font-family: var(--font-family-primary);
+  
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active {
+      transition: filter 250ms, color 200ms;
+      background-color: var(--color-white);
+      color: var(--color-primary);
+    }
+}

@@ -12,6 +12,11 @@
     --font-size-xxl: 4rem;     /*64px*/
     --font-size-xxxl: 6rem;    /*96px*/
 
+    /* Font weights */
+    --font-weight-bold: 700;
+    --font-weight-regular: 600;
+    --font-weight-light: 400;
+
     /* Application colors */
     --color-primary:     #CA326D;
     --color-secondary:   #FFC8DD;

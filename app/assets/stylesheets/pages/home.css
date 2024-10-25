@@ -1,0 +1,28 @@
+.home-container{
+    height: 100vh;
+    justify-content: center;
+}
+
+.home-title-container {
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.home-footer {
+    position: absolute;
+    bottom: 4rem;
+    right: 4.375rem; 
+    text-align: right;
+}
+
+.home-xs-text{
+    font-size: var(--font-size-xs);
+}
+
+.home-m-text{
+    font-size: var(--font-size-m);
+    font-family: var( --font-family-primary);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}

@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src:url('Fraunces_9pt-Bold.ttf'),
+        url('Fraunces_9pt-SemiBold.ttf');
+    font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -22,6 +35,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-body);
   font-family: var(--font-family-secondary);
+  font-size: var(--font-size-m);
 }
 
 img,
@@ -65,3 +79,13 @@ h4 {
   font-size: var(--font-size-l);
 }
 
+a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 200ms;
+}
+
+div{
+    display: flex;
+  flex-direction: column;
+}
