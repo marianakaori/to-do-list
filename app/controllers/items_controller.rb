@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-    before_action :fetch_list, only: %i[ index create edit update destroy ]
-    before_action :fetch_item, only: %i[ edit update destroy ]
+    before_action :fetch_list, only: %i[ index create edit update destroy toggle_complete ]
+    before_action :fetch_item, only: %i[ edit update destroy toggle_complete ]
 
     def index
         @items = @list.items
@@ -31,6 +31,12 @@ class ItemsController < ApplicationController
         redirect_to @list
     end
 
+
+    def toggle_complete
+        @item.completed = !@item.completed
+
+        redirect_to @list if @item.save
+    end
 
     private
 
